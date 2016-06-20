@@ -6,6 +6,9 @@ require 'http'
 post '/' do
   request.body.rewind
   response = HTTP.post("https://ipnpb.sandbox.paypal.com/cgi-bin/webscr", body: "cmd=_notify-validate&#{request.body.read}")
+  puts response.to_s
+  puts "----"
+  puts response.code
 end
 
 
